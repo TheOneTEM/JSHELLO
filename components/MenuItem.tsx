@@ -1,16 +1,24 @@
-import { StyleSheet, Image, Text, View } from 'react-native';
+import { StyleSheet, Image, Text, View, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import products from '../../assets/data/products'
 import {Product} from 'types';
-
+import {Link} from 'expo-router'
 type MenuItemProps = {product: Product;}
 const DefaultImage = 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png';
 export const MenuItem = ({product}: MenuItemProps) => {
-    return (<View style={styles.container}>
-                <Image source={{uri:product.image || DefaultImage}} style = {styles.image} resizeMode = {'contain'}/>
+    return (
+    <Link href={`/menu/${product.id}`} asChild>
+    	<Pressable style={styles.container}>
+                <Image
+                    source={{uri:product.image || DefaultImage}}
+                    style = {styles.image}
+                    resizeMode = "contain"
+                />
                 <Text style={styles.title}>{product.name}</Text>
                 <Text style={styles.subtitle}>${product.price}</Text>
-            </View>)};
+            </Pressable>
+    </Link>
+    )};
 export default MenuItem;
 
 const styles = StyleSheet.create({
@@ -22,7 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 15,
     borderRadius: 20,
-    flex: 1,
+    flex: 2,
     maxWidth: '50%',
   },
   title: {

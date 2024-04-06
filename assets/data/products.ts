@@ -17,7 +17,7 @@ const products = [
     id: 3,
     name: 'MeatZZa',
     image:
-      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png',
+      'https://www.georgespizzeria.se/wp-content/uploads/2022/02/25-KEBAB-PIZZA-scaled.jpeg',
     price: 13.47,
   },
   {
